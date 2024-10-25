@@ -4,6 +4,8 @@
 #include <godot_cpp/core/defs.hpp>
 #include <godot_cpp/godot.hpp>
 
+#include "general_greet.h"
+
 using namespace godot;
 
 void initialize_general_extension(ModuleInitializationLevel p_level) {
@@ -11,7 +13,7 @@ void initialize_general_extension(ModuleInitializationLevel p_level) {
 		return;
 	}
 
-	// GDREGISTER_CLASS();
+	GDREGISTER_CLASS(GeneralGreet);
 }
 
 void uninitialize_general_extension(ModuleInitializationLevel p_level) {

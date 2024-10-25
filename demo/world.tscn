@@ -1,3 +1,7 @@
 [gd_scene format=3 uid="uid://hh1g2n80cc6h"]
 
 [node name="World" type="Node3D"]
+
+[node name="GeneralGreet" type="GeneralGreet" parent="."]
+greeting = "Hi Moiz!"
+greet_count = 3.0
