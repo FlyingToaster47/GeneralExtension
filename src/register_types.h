@@ -5,7 +5,7 @@
 
 using namespace godot;
 
-void initialize_generic_extension(ModuleInitializationLevel p_level);
-void uninitialize_generic_extension(ModuleInitializationLevel p_level);
+void initialize_general_extension(ModuleInitializationLevel p_level);
+void uninitialize_general_extension(ModuleInitializationLevel p_level);
 
 #endif
