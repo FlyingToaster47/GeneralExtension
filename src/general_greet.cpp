@@ -5,8 +5,19 @@
 using namespace godot;
 
 
+#define BIND_PROPERTY(CLASS, TYPE, NAME)                \
+    ClassDB::bind_method(D_METHOD("set_" #NAME), &CLASS::set_##NAME); \
+    ClassDB::bind_method(D_METHOD("get_" #NAME), &CLASS::get_##NAME); \
+    ADD_PROPERTY(PropertyInfo(Variant::TYPE, #NAME), "set_" #NAME, "get_" #NAME);
+
+
+
 GeneralGreet::GeneralGreet() {
     greet_count = 1;
+}
+
+GeneralGreet::~GeneralGreet() {
+    UtilityFunctions::print(farewell);
 }
 
 
@@ -15,13 +26,11 @@ void GeneralGreet::_bind_methods() {
     ClassDB::bind_method(D_METHOD("greet_counted"), &GeneralGreet::greet_counted);
 
     ADD_GROUP("Greetings", "");
-    ClassDB::bind_method(D_METHOD("set_greeting"), &GeneralGreet::set_greeting);
-    ClassDB::bind_method(D_METHOD("get_greeting"), &GeneralGreet::get_greeting);
-    ADD_PROPERTY(PropertyInfo(Variant::STRING, "greeting"), "set_greeting", "get_greeting");
+    BIND_PROPERTY(GeneralGreet, STRING, greeting);
+    BIND_PROPERTY(GeneralGreet, INT, greet_count);
+    BIND_PROPERTY(GeneralGreet, STRING, farewell);
 
-    ClassDB::bind_method(D_METHOD("set_greet_count"), &GeneralGreet::set_greet_count);
-    ClassDB::bind_method(D_METHOD("get_greet_count"), &GeneralGreet::get_greet_count);
-    ADD_PROPERTY(PropertyInfo(Variant::STRING, "greet_count"), "set_greet_count", "get_greet_count");
+    ADD_SIGNAL(MethodInfo("greeted", PropertyInfo(Variant::STRING, "greeting")));
 }
 
 void GeneralGreet::_ready() {
@@ -36,23 +45,8 @@ String GeneralGreet::greet() {
 }
 
 void GeneralGreet::greet_counted() {
+    emit_signal("greeted", greeting);
     for (int i=0;i<greet_count;i++) {
         UtilityFunctions::print(greet());
     }
-}
-
-void GeneralGreet::set_greeting(String t_greeting) {
-    greeting = t_greeting;
-}
-
-String GeneralGreet::get_greeting() {
-    return greeting;
-}
-
-void GeneralGreet::set_greet_count(double t_greet_count) {
-    greet_count = t_greet_count;
-}
-
-double GeneralGreet::get_greet_count() {
-    return greet_count;
 }
