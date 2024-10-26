@@ -4,7 +4,7 @@
 
 [node name="GeneralGreet" type="GeneralGreet" parent="."]
 greeting = "Hi Moiz!"
-greet_count = 3.0
+greet_count = 1.0
 farewell = "Bye Moiz!"
 
 [node name="GeneralResponse" type="GeneralResponse" parent="GeneralGreet"]

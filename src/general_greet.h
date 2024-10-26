@@ -2,13 +2,7 @@
 #define GENERAL_GREET_H
 
 #include "godot_cpp/classes/node.hpp"
-
-
-#define DEFINE_PROPERTY(TYPE, NAME)     \
-    private: TYPE NAME;                \
-    public: void set_##NAME(TYPE value) { NAME = value; } \
-            TYPE get_##NAME() const { return NAME; }
-
+#include "utils/properties.h"
 
 namespace godot {
 
@@ -22,7 +16,6 @@ class GeneralGreet: public Node {
         static void _bind_methods();
     
     public:
-        GeneralGreet();
         ~GeneralGreet();
 
         void _ready() override;

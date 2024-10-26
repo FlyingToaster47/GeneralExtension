@@ -2,13 +2,9 @@
 #include "godot_cpp/core/class_db.hpp"
 #include "godot_cpp/variant/utility_functions.hpp"
 
+#include "utils/properties.h"
+
 using namespace godot;
-
-
-#define BIND_PROPERTY(CLASS, TYPE, NAME)                \
-    ClassDB::bind_method(D_METHOD("set_" #NAME), &CLASS::set_##NAME); \
-    ClassDB::bind_method(D_METHOD("get_" #NAME), &CLASS::get_##NAME); \
-    ADD_PROPERTY(PropertyInfo(Variant::TYPE, #NAME), "set_" #NAME, "get_" #NAME);
 
 
 void GeneralResponse::_bind_methods() {
