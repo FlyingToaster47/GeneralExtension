@@ -4,8 +4,9 @@
 #include <godot_cpp/core/defs.hpp>
 #include <godot_cpp/godot.hpp>
 
-#include "general_greet.h"
-#include "general_response.h"
+#include "nodes/general_greet.h"
+#include "nodes/general_response.h"
+#include "nodes/rotating_cube.h"
 
 using namespace godot;
 
@@ -16,6 +17,7 @@ void initialize_general_extension(ModuleInitializationLevel p_level) {
 
 	GDREGISTER_CLASS(GeneralGreet);
 	GDREGISTER_CLASS(GeneralResponse);
+	GDREGISTER_CLASS(RotatingCube);
 }
 
 void uninitialize_general_extension(ModuleInitializationLevel p_level) {

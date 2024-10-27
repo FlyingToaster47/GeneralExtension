@@ -1,11 +1,16 @@
-[gd_scene format=3 uid="uid://hh1g2n80cc6h"]
+[gd_scene load_steps=3 format=3 uid="uid://hh1g2n80cc6h"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4rys6"]
+albedo_color = Color(0.174799, 0.360509, 0.0604078, 1)
+emission_enabled = true
+emission = Color(0.174799, 0.360509, 0.0604078, 1)
+emission_energy_multiplier = 3.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_hjjbh"]
+material = SubResource("StandardMaterial3D_4rys6")
 
 [node name="World" type="Node3D"]
 
-[node name="GeneralGreet" type="GeneralGreet" parent="."]
-greeting = "Hi Moiz!"
-greet_count = 1.0
-farewell = "Bye Moiz!"
-
-[node name="GeneralResponse" type="GeneralResponse" parent="GeneralGreet"]
-response = "Oh Thank you!"
+[node name="RotatingCube" type="RotatingCube" parent="."]
+transform = Transform3D(-0.835481, 0, 0.549519, 0, 1, 0, -0.549519, 0, -0.835481, 0, 0, 0)
+mesh = SubResource("BoxMesh_hjjbh")
